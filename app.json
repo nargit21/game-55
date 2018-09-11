@@ -8,6 +8,9 @@
     "version": "1.0",
     "android": {
       "package": "expo.android.package"
-     }
+     },
+     "splash": {
+      "image": "./assets/img/loading.png"
+    }
   }
 }

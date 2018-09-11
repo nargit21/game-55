@@ -11,7 +11,7 @@ export default class extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ImageBackground source={require('../../assets/img/back.jpg')} style={styles.backgroundImage}>
+            <ImageBackground source={require('../../assets/img/back.png')} style={styles.backgroundImage}>
                 <View style={styles.container}>
                     <Text style={styles.loseText}>YOU WON</Text>
                     <Text style={styles.loseText}>CONGRATS</Text>

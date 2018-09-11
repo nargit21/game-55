@@ -25,7 +25,7 @@ export default class GameScreen extends Component {
         record: 55,
         targetColor: {
             index: 0,
-            color: '#c1ffb2'
+            color: '#2b2dd8'
         },
     }
 
@@ -62,14 +62,13 @@ export default class GameScreen extends Component {
     }
 
     pressHandler() {
-        const { rotateValue } = this.state;
         this.pressLoseTracker()
 
         this.setState((curr) => {
             return {
                 rotateBack: !curr.rotateBack,
                 clickCount: curr.clickCount - 1,
-                rotationSpeed: curr.rotationSpeed - 40,
+                rotationSpeed: curr.rotationSpeed - 32,
                 targetColor: getRandomColor(curr.targetColor.index)
             }
         }, () => {
@@ -170,7 +169,7 @@ export default class GameScreen extends Component {
         const { clickCount, targetColor, record } = this.state;
 
         return (
-            <ImageBackground source={require('../../assets/img/back.jpg')} style={styles.backgroundImage}>
+            <ImageBackground source={require('../../assets/img/back.png')} style={styles.backgroundImage}>
                 <TouchableWithoutFeedback onPress={() => this.pressHandler()} >
                     <View style={styles.container}>
                         {
@@ -185,7 +184,7 @@ export default class GameScreen extends Component {
                             source={require('../../assets/img/circle.png')}
                             style={[styles.image, { transform: [{ "rotate": this.currRotationAmount() }] }]}
                         />
-                        <Entypo name='arrow-bold-up' size={100} color={targetColor.color} />
+                        <Entypo style={styles.arrow} name='arrow-bold-up' size={125} color={targetColor.color} />
                     </View>
                 </TouchableWithoutFeedback>
             </ImageBackground>

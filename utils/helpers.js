@@ -4,13 +4,18 @@ import { AsyncStorage } from 'react-native';
 const colors = ['#FFC90E', '#A349A4', '#FF7F27', '#22B14C']
 
 export function getRandomColor(currNum) {
-    const randomNum = Math.floor(Math.random() * 4);
-    if (randomNum === currNum) {
-        return getRandomColor(currNum)
+    let result;
+    const randomNum = () => result = Math.floor(Math.random() * 4);
+
+    randomNum()
+
+    while(result === currNum) {
+        randomNum()
     }
+
     return {
-        index: randomNum,
-        color: colors[randomNum]
+        index: result,
+        color: colors[result]
     }
 }
 
@@ -25,29 +30,38 @@ export const styles = StyleSheet.create({
         height: 200
     },
     count: {
-        top: 130,
+        top: 150,
         zIndex: 100,
-        fontSize: 50
+        fontSize: 80,
+        fontWeight: 'bold',
+    },
+    arrow: {
     },
     loseText: {
         fontSize: 50,
-        color: '#ff5959'
+        color: '#2b2dd8',
+        fontWeight: 'bold',
     },
     buttonContainer: {
         alignItems: 'center',
         borderRadius: 5,
-        backgroundColor: '#ff5959',
+        backgroundColor: '#2b2dd8',
+        width: 200,
+        height: 50
     },
     record: {
-        fontSize: 20,
-        color: '#c1ffb2'
+        fontSize: 50,
+        color: '#2b2dd8',
+        fontWeight: 'bold',
     },
     backgroundImage: {
         width: '100%',
         height: '100%'
     },
     buttonText: {
-        fontSize: 30
+        fontSize: 30,
+        color: 'white',
+        fontWeight: 'bold',
     }
 });
 
